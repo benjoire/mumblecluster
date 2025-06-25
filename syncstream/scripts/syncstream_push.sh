@@ -1,16 +1,15 @@
 #!/bin/bash
-# syncstream.sh – scoped Git push for syncstream/
+cd "$(dirname "$0")/../" || exit
+echo "Pulling remote changes with rebase..."
+git pull --rebase origin main
 
-REPO_DIR="/home/celvin__1/Documents/MumbleCluster/github"
-cd "$REPO_DIR/syncstream" || exit
+echo "Staging changes..."
+git add syncstream/
 
-echo "📦 Staging changes in syncstream/"
-git add .
-
-echo "📝 Commit message:"
+echo "Commit message:"
 read -r COMMIT_MSG
-
 git commit -m "$COMMIT_MSG"
-git push origin main
 
-echo "✅ syncstream push complete."
+echo "Pushing to GitHub..."
+git push origin main
+echo "Push complete."
