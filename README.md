@@ -1,8 +1,22 @@
 [![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof.mumblehighlife.de/)
+![Status](https://img.shields.io/badge/status-experimental-orange)
+![Architecture](https://img.shields.io/badge/arch-ARM%20%7C%20AMD64-blue)
+![Networking](https://img.shields.io/badge/network-Cilium%20eBPF-green)
+![Mesh](https://img.shields.io/badge/mesh-WireGuard-purple)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 # MumbleCluster
 
-MumbleCluster is a modular distributed compute environment designed to unify heterogeneous systems into a single orchestrated runtime.
+MumbleCluster explores how heterogeneous machines across LAN and WAN can be assimilated into a unified Kubernetes runtime.
+
+The cluster currently spans:
+
+• BENQ — control plane
+• HEX22 — WAN worker / ingress node
+• BELL — LAN worker
+
+Networking is provided through WireGuard and Cilium eBPF,
+allowing workloads to route transparently across nodes and networks.
 
 The platform integrates:
 
