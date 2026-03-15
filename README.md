@@ -1,3 +1,5 @@
+[![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof.mumblehighlife.de/)
+
 # MumbleCluster
 
 MumbleCluster is a modular distributed compute environment designed to unify heterogeneous systems into a single orchestrated runtime.
@@ -60,3 +62,16 @@ Questions, ideas, or collaboration proposals are welcome.
 Please open a **GitHub Issue** or **Discussion** in this repository.
 
 Project maintainer: **@benjoire**
+
+---
+
+## Live demonstration
+
+A running Proof-of-Concept instance of the cluster is publicly accessible.
+
+PoC endpoint:
+
+https://proof.mumblehighlife.de/
+
+This page is served through the MumbleCluster ingress layer and demonstrates
+cross-node routing through the cluster infrastructure.
