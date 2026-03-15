@@ -1,0 +1,29 @@
+NAMESPACE            NAME                                                   READY   STATUS             RESTARTS         AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+cert-manager         cert-manager-86f5967f88-t8fm9                          1/1     Running            3 (3h17m ago)    7d16h   10.0.1.182   hetzner-cx22   <none>           <none>
+cert-manager         cert-manager-cainjector-74fc95566f-5l9rs               1/1     Running            7 (3h17m ago)    7h42m   10.0.1.67    hetzner-cx22   <none>           <none>
+cert-manager         cert-manager-webhook-76589d6cc6-bbtvv                  1/1     Running            0                7d16h   10.0.1.49    hetzner-cx22   <none>           <none>
+default              netshoot-hex22                                         1/1     Running            0                11d     10.0.1.176   hetzner-cx22   <none>           <none>
+ingress-nginx        ingress-nginx-controller-75bc64f575-sfrcl              1/1     Running            0                9h      10.0.1.163   hetzner-cx22   <none>           <none>
+kube-system          cilium-envoy-9k2rn                                     1/1     Running            0                13d     10.10.0.2    hetzner-cx22   <none>           <none>
+kube-system          cilium-envoy-g8hrd                                     1/1     Running            6 (3h17m ago)    29d     10.10.0.3    benq           <none>           <none>
+kube-system          cilium-envoy-pt9jc                                     0/1     CrashLoopBackOff   65 (30s ago)     5h55m   10.10.0.4    bell-agent     <none>           <none>
+kube-system          cilium-jgcl9                                           1/1     Running            0                13d     10.10.0.2    hetzner-cx22   <none>           <none>
+kube-system          cilium-mjqdv                                           1/1     Running            0                5h55m   10.10.0.4    bell-agent     <none>           <none>
+kube-system          cilium-operator-9b59548b-7kwcm                         1/1     Running            12 (3h17m ago)   7d18h   10.10.0.2    hetzner-cx22   <none>           <none>
+kube-system          cilium-qrpvd                                           1/1     Running            1 (3h17m ago)    7d18h   10.10.0.3    benq           <none>           <none>
+kube-system          cloud-controller-manager-benq                          1/1     Running            20 (3h17m ago)   13d     10.10.0.3    benq           <none>           <none>
+kube-system          etcd-benq                                              1/1     Running            1                7d18h   10.10.0.3    benq           <none>           <none>
+kube-system          helm-install-rke2-coredns-q56xb                        0/1     Completed          0                13d     10.10.0.3    benq           <none>           <none>
+kube-system          kube-apiserver-benq                                    1/1     Running            1                7d18h   10.10.0.3    benq           <none>           <none>
+kube-system          kube-controller-manager-benq                           1/1     Running            2 (3h17m ago)    7d18h   10.10.0.3    benq           <none>           <none>
+kube-system          kube-scheduler-benq                                    1/1     Running            1 (3h17m ago)    7d18h   10.10.0.3    benq           <none>           <none>
+kube-system          rke2-coredns-rke2-coredns-6464f98784-lprgs             1/1     Running            0                13d     10.0.1.104   hetzner-cx22   <none>           <none>
+kube-system          rke2-coredns-rke2-coredns-6464f98784-mtl5j             1/1     Running            3 (3h17m ago)    17d     10.0.2.218   benq           <none>           <none>
+kube-system          rke2-coredns-rke2-coredns-autoscaler-67bb49dff-j6z9t   1/1     Running            4874 (97m ago)   17d     10.0.2.113   benq           <none>           <none>
+local-path-storage   local-path-provisioner-76d9dbd9b9-kxqxg                1/1     Running            0                7h42m   10.0.1.121   hetzner-cx22   <none>           <none>
+poc                  mc-poc-amd64-5f487775b6-g7t2n                          1/1     Running            0                10h     10.0.1.160   hetzner-cx22   <none>           <none>
+poc                  mc-poc-arm64-749769c554-fdgrw                          0/1     Pending            0                7h42m   <none>       <none>         <none>           <none>
+poc                  mc-poc-proof-54ddf7dd8b-q9kpj                          1/1     Running            0                3d3h    10.0.1.147   hetzner-cx22   <none>           <none>
+poc                  pvc-probe                                              1/1     Running            172 (32m ago)    7d4h    10.0.1.181   hetzner-cx22   <none>           <none>
+poc                  webtop-a2g-5cdbff8f68-4gcdx                            1/1     Running            0                7d2h    10.0.1.86    hetzner-cx22   <none>           <none>
+poc                  whoami-6586bd767f-9vqhc                                1/1     Running            0                7d17h   10.0.1.137   hetzner-cx22   <none>           <none>

@@ -1,0 +1,4 @@
+NAME           STATUS                     ROLES                       AGE    VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+bell-agent     Ready,SchedulingDisabled   <none>                      5h3m   v1.34.5+rke2r1   10.10.0.4     <none>        Ubuntu 24.04.4 LTS   6.14.0-37-generic    containerd://2.1.5-k3s1
+benq           Ready                      control-plane,etcd,master   29d    v1.33.5+rke2r1   10.10.0.3     10.10.0.3     Ubuntu 22.04.5 LTS   6.8.0-90-generic     containerd://2.1.4-k3s2
+hetzner-cx22   Ready                      <none>                      13d    v1.33.6+rke2r1   10.10.0.2     <none>        Ubuntu 22.04.5 LTS   5.15.0-151-generic   containerd://2.1.5-k3s1

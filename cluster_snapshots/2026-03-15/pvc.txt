@@ -1,0 +1,2 @@
+NAMESPACE   NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+poc         webtop-a2g-config   Bound    pvc-7842fb08-93e2-4210-90bb-819a759a75f6   40Gi       RWO            local-path     <unset>                 7d5h

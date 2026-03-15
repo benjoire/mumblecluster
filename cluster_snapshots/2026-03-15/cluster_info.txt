@@ -1,0 +1,4 @@
+Kubernetes control plane is running at https://192.168.88.154:6443
+CoreDNS is running at https://192.168.88.154:6443/api/v1/namespaces/kube-system/services/rke2-coredns-rke2-coredns:udp-53/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
