@@ -1,6 +1,6 @@
 MumbleCluster
 
-This is the master GitHub repository for MumbleCluster – a modular compute cluster, cross-metal|network|architecture compatible framework.
+This is the MC GitHub repository for MumbleCluster – a modular compute cluster, cross-metal|network|architecture compatible framework.
 
 - syncstream → Protocol-driven coordination layer (YAML, ODS, logs)
 
