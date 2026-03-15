@@ -1,13 +1,62 @@
-MumbleCluster
+# MumbleCluster
 
-This is the MC GitHub repository for MumbleCluster – a modular compute cluster, cross-metal|network|architecture compatible framework.
+MumbleCluster is a modular distributed compute environment designed to unify heterogeneous systems into a single orchestrated runtime.
 
-- syncstream → Protocol-driven coordination layer (YAML, ODS, logs)
+The platform integrates:
 
-Access:
-SSH-authenticated access only. Contact 'benjoire' for deployment roles or collab tokens.
+- Kubernetes (RKE2)
+- Cilium eBPF networking
+- WireGuard overlay networking
+- Mixed CPU architectures (ARM / AMD64)
+- Cross-network orchestration across LAN and WAN nodes
 
-Status:
-- Active branch: 'main'
-- Core ops file: 'SYNCSTREAM_sheet.ods'
+The project explores how independent machines can be assimilated into a coherent distributed runtime capable of orchestrating compute workloads across networks, architectures, and hardware generations.
 
+---
+
+## Repository Structure
+
+docs/
+: Architecture documentation and Proof-of-Concept records.
+
+cluster_snapshots/
+: Historical captures of cluster state used for debugging, reproducibility, and infrastructure archaeology.
+
+scripts/
+: Operational tooling for cluster maintenance and automation.
+
+syncstream/
+: Protocol-driven coordination layer for operations scheduling, telemetry, and orchestration metadata.
+
+---
+
+## Cluster Status
+
+Active branch: `main`
+
+**Controller node**
+- BENQ
+
+**Worker nodes**
+- HEX22 — WAN worker
+- BELL — LAN worker
+
+Ingress entrypoint currently anchored on **HEX22**.
+
+---
+
+## Project Direction
+
+MumbleCluster aims to evolve into a modular distributed runtime capable of assimilating heterogeneous compute nodes into a unified orchestration system.
+
+The platform serves as a foundation for experimental infrastructure research involving distributed compute, networking, and automation.
+
+---
+
+## Collaboration
+
+Questions, ideas, or collaboration proposals are welcome.
+
+Please open a **GitHub Issue** or **Discussion** in this repository.
+
+Project maintainer: **@benjoire**
