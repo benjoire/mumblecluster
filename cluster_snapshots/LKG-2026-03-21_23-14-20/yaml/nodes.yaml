@@ -1,0 +1,567 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      alpha.kubernetes.io/provided-node-ip: 10.10.0.4
+      node.alpha.kubernetes.io/ttl: "0"
+      rke2.io/hostname: bell.mcc
+      rke2.io/internal-ip: 10.10.0.4
+      rke2.io/node-args: '["agent","--server","https://10.10.0.3:9345","--token","********","--node-name","bell-agent","--node-ip","10.10.0.4"]'
+      rke2.io/node-config-hash: NMM4ACHVMSNHZD2I5S3Y355ANDQBUCZEP4BG2AKOBLTKQ32JJSHA====
+      rke2.io/node-env: '{}'
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2026-03-15T05:03:39Z"
+    finalizers:
+    - wrangler.cattle.io/node
+    - wrangler.cattle.io/managed-etcd-controller
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/instance-type: rke2
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: bell-agent
+      kubernetes.io/os: linux
+      node.kubernetes.io/instance-type: rke2
+    name: bell-agent
+    resourceVersion: "19064703"
+    uid: 0aa2b955-6805-40b9-8899-5d98361cba9c
+  spec:
+    podCIDR: 10.42.4.0/24
+    podCIDRs:
+    - 10.42.4.0/24
+    providerID: rke2://bell-agent
+  status:
+    addresses:
+    - address: 10.10.0.4
+      type: InternalIP
+    - address: bell.mcc
+      type: Hostname
+    allocatable:
+      cpu: "4"
+      ephemeral-storage: "62446113744"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 16253868Ki
+      pods: "110"
+    capacity:
+      cpu: "4"
+      ephemeral-storage: 64192140Ki
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 16253868Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2026-03-15T05:04:15Z"
+      lastTransitionTime: "2026-03-15T05:04:15Z"
+      message: Cilium is running on this node
+      reason: CiliumIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2026-03-21T23:09:23Z"
+      lastTransitionTime: "2026-03-21T05:36:50Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2026-03-21T23:09:23Z"
+      lastTransitionTime: "2026-03-21T05:36:50Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2026-03-21T23:09:23Z"
+      lastTransitionTime: "2026-03-21T05:36:50Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2026-03-21T23:09:23Z"
+      lastTransitionTime: "2026-03-21T05:36:50Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    features:
+      supplementalGroupsPolicy: true
+    images:
+    - names:
+      - quay.io/cilium/cilium@sha256:42ec562a5ff6c8a860c0639f5a7611685e253fd9eb2d2fcdade693724c9166a4
+      sizeBytes: 250224125
+    - names:
+      - docker.io/nicolaka/netshoot@sha256:47b907d662d139d1e2f22bfe14f4efca1e3f1feed283572f47c970c780c03b61
+      - docker.io/nicolaka/netshoot:latest
+      sizeBytes: 212842400
+    - names:
+      - docker.io/rancher/rke2-runtime@sha256:4aead14f47c6f5a23aea9c4143822f0b87bb20a8634a2581f2acf8303a323043
+      - docker.io/rancher/rke2-runtime:v1.34.5-rke2r1
+      sizeBytes: 100680323
+    - names:
+      - quay.io/cilium/cilium-envoy@sha256:81398e449f2d3d0a6a70527e4f641aaa685d3156bea0bb30712fae3fd8822b86
+      sizeBytes: 70469268
+    - names:
+      - quay.io/cilium/operator-generic@sha256:34a827ce9ed021c8adf8f0feca131f53b3c54a3ef529053d871d0347ec4d69af
+      sizeBytes: 32952793
+    - names:
+      - docker.io/rancher/hardened-coredns@sha256:6db8bf05ec0e6c5564845b6e03ffc46e7629654cdfe53f3da6024e33abbe2dff
+      - docker.io/rancher/hardened-coredns:v1.12.3-build20250909
+      sizeBytes: 29121737
+    - names:
+      - quay.io/jetstack/cert-manager-controller@sha256:9cad8065bbf57815cbcfa813b903dd8822bcd0271f7443192082b54e96a55585
+      - quay.io/jetstack/cert-manager-controller:v1.19.4
+      sizeBytes: 23530302
+    - names:
+      - docker.io/rancher/local-path-provisioner@sha256:6ff68ebe98bc623b45ad22c28be84f8a08214982710f3247d5862e9bccce73ef
+      - docker.io/rancher/local-path-provisioner:v0.0.34
+      sizeBytes: 21600592
+    - names:
+      - quay.io/jetstack/cert-manager-webhook@sha256:f41b4ac798c8ff200c29756cf86e70a00e73fe489fb6ab80d9210d1b5f476852
+      - quay.io/jetstack/cert-manager-webhook:v1.19.4
+      sizeBytes: 19902100
+    - names:
+      - quay.io/jetstack/cert-manager-cainjector@sha256:5d810724b177746a8aeafd5db111b55b72389861bcec03a6d50f9c6d56ec37c0
+      - quay.io/jetstack/cert-manager-cainjector:v1.19.4
+      sizeBytes: 12514979
+    - names:
+      - docker.io/traefik/whoami@sha256:43a68d10b9dfcfc3ffbfe4dd42100dc9aeaf29b3a5636c856337a5940f1b4f1c
+      - docker.io/traefik/whoami:v1.10.3
+      sizeBytes: 2853860
+    - names:
+      - docker.io/rancher/mirrored-pause@sha256:74c4244427b7312c5b901fe0f67cbc53683d06f4f24c6faee65d4182bf0fa893
+      - docker.io/rancher/mirrored-pause:3.6
+      sizeBytes: 301463
+    nodeInfo:
+      architecture: amd64
+      bootID: 4e0891fb-2ffd-41e3-a74f-f61b0ffa8983
+      containerRuntimeVersion: containerd://2.1.5-k3s1
+      kernelVersion: 6.17.0-19-generic
+      kubeProxyVersion: ""
+      kubeletVersion: v1.34.5+rke2r1
+      machineID: d31851843a7d448f8fdc34c5ad861eb0
+      operatingSystem: linux
+      osImage: Ubuntu 24.04.4 LTS
+      swap:
+        capacity: 4294963200
+      systemUUID: 0e383fcc-234f-11b2-a85c-bd21880c8e41
+    runtimeHandlers:
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: ""
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: runc
+    - features:
+        recursiveReadOnlyMounts: false
+        userNamespaces: false
+      name: runhcs-wcow-process
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      alpha.kubernetes.io/provided-node-ip: 10.10.0.3
+      etcd.rke2.cattle.io/local-snapshots-timestamp: "2026-03-22T00:05:04+01:00"
+      etcd.rke2.cattle.io/node-address: 10.10.0.3
+      etcd.rke2.cattle.io/node-name: benq-b88ca73a
+      flannel.alpha.coreos.com/backend-data: '{"VNI":1,"VtepMAC":"6e:61:f6:0a:f1:fa"}'
+      flannel.alpha.coreos.com/backend-type: vxlan
+      flannel.alpha.coreos.com/kube-subnet-manager: "true"
+      flannel.alpha.coreos.com/public-ip: 192.168.88.154
+      node.alpha.kubernetes.io/ttl: "0"
+      rke2.io/encryption-config-hash: start-371ff77b7b86b8f56326b443da6c8dd393d3f09987957116171e2b3fbb42476b
+      rke2.io/external-ip: 10.10.0.3
+      rke2.io/hostname: BenQ
+      rke2.io/internal-ip: 10.10.0.3
+      rke2.io/node-args: '["server","--token","********","--node-name","benq","--node-ip","10.10.0.3","--node-external-ip","10.10.0.3","--advertise-address","10.10.0.3","--tls-san","192.168.88.154","--tls-san","10.10.0.3","--tls-san","benq","--cni","none","--disable-kube-proxy","true","--disable","rke2-canal","--disable","kube-proxy"]'
+      rke2.io/node-config-hash: FOM45RNSPI7E2MQP2K2NBBZOYLKD6VF6DKP5BFQWTFDQLMYYON4A====
+      rke2.io/node-env: '{}'
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2026-02-14T09:00:40Z"
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-controller
+    - wrangler.cattle.io/node
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/instance-type: rke2
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: benq
+      kubernetes.io/os: linux
+      node-role.kubernetes.io/control-plane: "true"
+      node-role.kubernetes.io/etcd: "true"
+      node-role.kubernetes.io/master: "true"
+      node.kubernetes.io/instance-type: rke2
+    name: benq
+    resourceVersion: "19065603"
+    uid: fd55be6a-2d0d-4b3f-80f5-f1226fa33860
+  spec:
+    podCIDR: 10.42.2.0/24
+    podCIDRs:
+    - 10.42.2.0/24
+    providerID: rke2://benq
+  status:
+    addresses:
+    - address: 10.10.0.3
+      type: InternalIP
+    - address: 10.10.0.3
+      type: ExternalIP
+    - address: BenQ
+      type: Hostname
+    allocatable:
+      cpu: "4"
+      ephemeral-storage: "92936957675"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 16336848Ki
+      pods: "110"
+    capacity:
+      cpu: "4"
+      ephemeral-storage: 95535524Ki
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 16336848Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2026-02-14T18:54:59Z"
+      lastTransitionTime: "2026-02-14T18:54:59Z"
+      message: Cilium is running on this node
+      reason: CiliumIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2026-03-21T23:13:21Z"
+      lastTransitionTime: "2026-02-14T09:00:54Z"
+      message: Node is a voting member of the etcd cluster
+      reason: MemberNotLearner
+      status: "True"
+      type: EtcdIsVoter
+    - lastHeartbeatTime: "2026-03-21T23:13:09Z"
+      lastTransitionTime: "2026-02-14T18:52:58Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2026-03-21T23:13:09Z"
+      lastTransitionTime: "2026-02-14T18:52:58Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2026-03-21T23:13:09Z"
+      lastTransitionTime: "2026-02-14T18:52:58Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2026-03-21T23:13:09Z"
+      lastTransitionTime: "2026-02-14T18:52:58Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    features:
+      supplementalGroupsPolicy: true
+    images:
+    - names:
+      - quay.io/cilium/cilium@sha256:42ec562a5ff6c8a860c0639f5a7611685e253fd9eb2d2fcdade693724c9166a4
+      sizeBytes: 250224125
+    - names:
+      - docker.io/rancher/hardened-calico@sha256:7ae533077fa77c972b65f4b9aef54dc273fb69d2701886d144cb6e975df7697e
+      - docker.io/rancher/hardened-calico:v3.30.3-build20250909
+      sizeBytes: 231633260
+    - names:
+      - docker.io/rancher/hardened-kubernetes@sha256:27bdd111f8574ddca83aac5cffc9e34715e6358b99d1ca5db0023d18d5663f79
+      - docker.io/rancher/hardened-kubernetes:v1.33.5-rke2r1-build20250910
+      sizeBytes: 200635564
+    - names:
+      - docker.io/rancher/hardened-kubernetes@sha256:df08c06098183a2da68f6e39c082725ba5a1bdc2ec793866633806465ec6c46a
+      - docker.io/rancher/hardened-kubernetes:v1.33.6-rke2r1-build20251112
+      sizeBytes: 200365801
+    - names:
+      - registry.k8s.io/ingress-nginx/controller@sha256:e24f39d3eed6bcc239a56f20098878845f62baa34b9f2be2fd2c38ce9fb0f29e
+      sizeBytes: 103823244
+    - names:
+      - docker.io/rancher/rke2-runtime@sha256:b5720f8d77a1df77b9cf4351af4f4ea100cd6c7a5a7f81b510eb9e7088e4939d
+      - docker.io/rancher/rke2-runtime:v1.33.5-rke2r1
+      sizeBytes: 100088091
+    - names:
+      - docker.io/rancher/klipper-helm@sha256:5e2e5ab00d5f2652bfea2bc5554d07b57a015fe574434b275a2cb11c2d135c04
+      - docker.io/rancher/klipper-helm:v0.9.8-build20250709
+      sizeBytes: 76820308
+    - names:
+      - quay.io/cilium/cilium-envoy@sha256:81398e449f2d3d0a6a70527e4f641aaa685d3156bea0bb30712fae3fd8822b86
+      sizeBytes: 70469268
+    - names:
+      - quay.io/cilium/operator-generic@sha256:34a827ce9ed021c8adf8f0feca131f53b3c54a3ef529053d871d0347ec4d69af
+      sizeBytes: 32952793
+    - names:
+      - docker.io/rancher/mirrored-sig-storage-snapshot-controller@sha256:1cda6e2aeae92ad55aa33459b3903850010afce8e12c43842d5a98a0d620c159
+      - docker.io/rancher/mirrored-sig-storage-snapshot-controller:v8.2.0
+      sizeBytes: 29129582
+    - names:
+      - docker.io/rancher/hardened-coredns@sha256:6db8bf05ec0e6c5564845b6e03ffc46e7629654cdfe53f3da6024e33abbe2dff
+      - docker.io/rancher/hardened-coredns:v1.12.3-build20250909
+      sizeBytes: 29121737
+    - names:
+      - docker.io/rancher/rke2-cloud-provider@sha256:67c0ae9d58e5985a04614033fc3043752cf5a837eed43bbd091bbaef38285223
+      - docker.io/rancher/rke2-cloud-provider:v1.33.6-0.20251010190850-d6b5244412d1-build20251017
+      sizeBytes: 24146953
+    - names:
+      - docker.io/rancher/rke2-cloud-provider@sha256:41a18392ee58427c778c4e46d471f45c06663b2cb893da446c9925bddca7fc1d
+      - docker.io/rancher/rke2-cloud-provider:v1.33.4-rc1.0.20250814212538-148243c49519-build20250908
+      sizeBytes: 24000824
+    - names:
+      - docker.io/rancher/hardened-flannel@sha256:28f2529ef2a5119fda1aef7fd6ab0ea87ff6d9187ebb56ae37e7c9b69f505d20
+      - docker.io/rancher/hardened-flannel:v0.27.3-build20250901
+      sizeBytes: 22097135
+    - names:
+      - docker.io/rancher/local-path-provisioner@sha256:6ff68ebe98bc623b45ad22c28be84f8a08214982710f3247d5862e9bccce73ef
+      - docker.io/rancher/local-path-provisioner:v0.0.34
+      sizeBytes: 21600592
+    - names:
+      - docker.io/rancher/hardened-k8s-metrics-server@sha256:41051591a388dbfc78699af39e3d3ade1f4a60538d87bfdfb9959accdca78de0
+      - docker.io/rancher/hardened-k8s-metrics-server:v0.8.0-build20250909
+      sizeBytes: 21358447
+    - names:
+      - docker.io/rancher/hardened-etcd@sha256:a063fd5f6d3539bcdc2dd8ad95a2ee809fe20da5612138142b12ca4e73ac0f18
+      - docker.io/rancher/hardened-etcd:v3.5.21-k3s1-build20250910
+      sizeBytes: 18131702
+    - names:
+      - docker.io/rancher/hardened-cluster-autoscaler@sha256:1cce0cd2816fbd7de52d2bd00b548bc1de47a2422ee8d99766f83a14e094f3e1
+      - docker.io/rancher/hardened-cluster-autoscaler:v1.10.2-build20250909
+      sizeBytes: 14086911
+    - names:
+      - docker.io/rancher/mirrored-pause@sha256:74c4244427b7312c5b901fe0f67cbc53683d06f4f24c6faee65d4182bf0fa893
+      - docker.io/rancher/mirrored-pause:3.6
+      sizeBytes: 301463
+    nodeInfo:
+      architecture: amd64
+      bootID: b1152d09-f2e7-466c-8a06-35d87fa3eec1
+      containerRuntimeVersion: containerd://2.1.4-k3s2
+      kernelVersion: 6.8.0-106-generic
+      kubeProxyVersion: ""
+      kubeletVersion: v1.33.5+rke2r1
+      machineID: a5f84d42f2fb4172af24ef70bfe6007c
+      operatingSystem: linux
+      osImage: Ubuntu 22.04.5 LTS
+      swap:
+        capacity: 15999168512
+      systemUUID: 8c41a778-4baf-c930-2b4f-e03f4985ffcc
+    runtimeHandlers:
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: ""
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: runc
+    - features:
+        recursiveReadOnlyMounts: false
+        userNamespaces: false
+      name: runhcs-wcow-process
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      alpha.kubernetes.io/provided-node-ip: 10.10.0.2
+      node.alpha.kubernetes.io/ttl: "0"
+      rke2.io/hostname: hetzner-cx22
+      rke2.io/internal-ip: 10.10.0.2
+      rke2.io/node-args: '["agent","--server","https://10.10.0.3:9345","--token","********","--node-name","hetzner-cx22","--node-ip","10.10.0.2","--data-dir","/mnt/HC_Volume_100G/rke2"]'
+      rke2.io/node-config-hash: 4WFXLRXFSI4YSDRGVM2JVIOFGZNZDQWX5UBIOETXZBX2MNROBRCA====
+      rke2.io/node-env: '{}'
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2026-03-01T20:03:31Z"
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-controller
+    - wrangler.cattle.io/node
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/instance-type: rke2
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: hetzner-cx22
+      kubernetes.io/os: linux
+      node.kubernetes.io/instance-type: rke2
+      proof-arch: amd64
+      proof-role: wan
+    name: hetzner-cx22
+    resourceVersion: "19065206"
+    uid: 36ba284a-8ba5-411f-85f5-9c4482d9a433
+  spec:
+    podCIDR: 10.42.0.0/24
+    podCIDRs:
+    - 10.42.0.0/24
+    providerID: rke2://hetzner-cx22
+  status:
+    addresses:
+    - address: 10.10.0.2
+      type: InternalIP
+    - address: hetzner-cx22
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      ephemeral-storage: "37975228592"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 15984972Ki
+      pods: "110"
+    capacity:
+      cpu: "8"
+      ephemeral-storage: 39037036Ki
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 15984972Ki
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2026-03-01T20:41:34Z"
+      lastTransitionTime: "2026-03-01T20:41:34Z"
+      message: Cilium is running on this node
+      reason: CiliumIsUp
+      status: "False"
+      type: NetworkUnavailable
+    - lastHeartbeatTime: "2026-03-21T23:11:37Z"
+      lastTransitionTime: "2026-03-21T08:31:21Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2026-03-21T23:11:37Z"
+      lastTransitionTime: "2026-03-21T08:31:21Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2026-03-21T23:11:37Z"
+      lastTransitionTime: "2026-03-21T08:31:21Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2026-03-21T23:11:37Z"
+      lastTransitionTime: "2026-03-21T08:31:21Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    features:
+      supplementalGroupsPolicy: true
+    images:
+    - names:
+      - lscr.io/linuxserver/webtop@sha256:e501de39f04926049e46dea7f6f8e8062810d8a849aba5074e0110aba36b02f6
+      - lscr.io/linuxserver/webtop:debian-kde
+      sizeBytes: 1531568390
+    - names:
+      - lscr.io/linuxserver/webtop@sha256:5aab3687319cb006da911a20f0aa1aaa3579ceb06b2a25a0bd5be9207b26ca4b
+      - lscr.io/linuxserver/webtop:alpine-kde
+      sizeBytes: 1510089991
+    - names:
+      - quay.io/cilium/cilium@sha256:42ec562a5ff6c8a860c0639f5a7611685e253fd9eb2d2fcdade693724c9166a4
+      sizeBytes: 250224125
+    - names:
+      - docker.io/nicolaka/netshoot@sha256:47b907d662d139d1e2f22bfe14f4efca1e3f1feed283572f47c970c780c03b61
+      - docker.io/nicolaka/netshoot:latest
+      sizeBytes: 212842400
+    - names:
+      - registry.k8s.io/ingress-nginx/controller@sha256:e24f39d3eed6bcc239a56f20098878845f62baa34b9f2be2fd2c38ce9fb0f29e
+      sizeBytes: 103823244
+    - names:
+      - docker.io/rancher/rke2-runtime@sha256:3fe769d6899a2a68f439429f7c5badaf0ccc9255a3842bd9de5c1276270b090d
+      - docker.io/rancher/rke2-runtime:v1.33.6-rke2r1
+      sizeBytes: 100243229
+    - names:
+      - quay.io/cilium/cilium-envoy@sha256:81398e449f2d3d0a6a70527e4f641aaa685d3156bea0bb30712fae3fd8822b86
+      sizeBytes: 70469268
+    - names:
+      - docker.io/shadhajuuhpioky/poc-metrics@sha256:7e0e642ea691451ad4b68dd484a64301450831fa32fa9af433221fec6f26c80c
+      sizeBytes: 51964485
+    - names:
+      - docker.io/shadhajuuhpioky/poc-metrics@sha256:e4dceeccf85ff666a592ddeb8223412f1ad0c14a68b46ba1c18fbd665ffb594e
+      - docker.io/shadhajuuhpioky/poc-metrics:latest
+      sizeBytes: 51964455
+    - names:
+      - quay.io/cilium/operator-generic@sha256:34a827ce9ed021c8adf8f0feca131f53b3c54a3ef529053d871d0347ec4d69af
+      sizeBytes: 32952793
+    - names:
+      - docker.io/rancher/hardened-coredns@sha256:6db8bf05ec0e6c5564845b6e03ffc46e7629654cdfe53f3da6024e33abbe2dff
+      - docker.io/rancher/hardened-coredns:v1.12.3-build20250909
+      sizeBytes: 29121737
+    - names:
+      - docker.io/shadhajuuhpioky/poc-metrics@sha256:e534271a09876d2acbdbaea32ddc27c82d152351445419d8555eb3bae17045b8
+      sizeBytes: 26884866
+    - names:
+      - docker.io/shadhajuuhpioky/poc-metrics@sha256:7aaa7081fdf4b69083fc6d9f51155a30e14692b06c38d926f704f18092bce593
+      sizeBytes: 26884753
+    - names:
+      - docker.io/shadhajuuhpioky/poc-metrics@sha256:152127be53feb02ed37fcdd4d50eaa9b2f33698f1366c8baf44452bf65b56f05
+      sizeBytes: 26884457
+    - names:
+      - docker.io/library/nginx@sha256:5b4900b042ccfa8b0a73df622c3a60f2322faeb2be800cbee5aa7b44d241649e
+      - docker.io/library/nginx:stable-alpine
+      sizeBytes: 25965904
+    - names:
+      - quay.io/jetstack/cert-manager-controller@sha256:9cad8065bbf57815cbcfa813b903dd8822bcd0271f7443192082b54e96a55585
+      - quay.io/jetstack/cert-manager-controller:v1.19.4
+      sizeBytes: 23530302
+    - names:
+      - docker.io/rancher/local-path-provisioner@sha256:6ff68ebe98bc623b45ad22c28be84f8a08214982710f3247d5862e9bccce73ef
+      - docker.io/rancher/local-path-provisioner:v0.0.34
+      sizeBytes: 21600592
+    - names:
+      - quay.io/jetstack/cert-manager-webhook@sha256:f41b4ac798c8ff200c29756cf86e70a00e73fe489fb6ab80d9210d1b5f476852
+      - quay.io/jetstack/cert-manager-webhook:v1.19.4
+      sizeBytes: 19902100
+    - names:
+      - quay.io/jetstack/cert-manager-cainjector@sha256:5d810724b177746a8aeafd5db111b55b72389861bcec03a6d50f9c6d56ec37c0
+      - quay.io/jetstack/cert-manager-cainjector:v1.19.4
+      sizeBytes: 12514979
+    - names:
+      - docker.io/traefik/whoami@sha256:43a68d10b9dfcfc3ffbfe4dd42100dc9aeaf29b3a5636c856337a5940f1b4f1c
+      - docker.io/traefik/whoami:v1.10.3
+      sizeBytes: 2853860
+    - names:
+      - docker.io/library/busybox@sha256:b9598f8c98e24d0ad42c1742c32516772c3aa2151011ebaf639089bd18c605b8
+      - docker.io/library/busybox:1.36
+      sizeBytes: 2217150
+    - names:
+      - docker.io/rancher/mirrored-pause@sha256:74c4244427b7312c5b901fe0f67cbc53683d06f4f24c6faee65d4182bf0fa893
+      - docker.io/rancher/mirrored-pause:3.6
+      sizeBytes: 301463
+    nodeInfo:
+      architecture: amd64
+      bootID: 4452303d-1c25-49fe-99fc-011b01e96e7f
+      containerRuntimeVersion: containerd://2.1.5-k3s1
+      kernelVersion: 5.15.0-171-generic
+      kubeProxyVersion: ""
+      kubeletVersion: v1.33.6+rke2r1
+      machineID: 6a84b58c42d644c39567ac84812af9f1
+      operatingSystem: linux
+      osImage: Ubuntu 22.04.5 LTS
+      systemUUID: 6a84b58c-42d6-44c3-9567-ac84812af9f1
+    runtimeHandlers:
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: ""
+    - features:
+        recursiveReadOnlyMounts: true
+        userNamespaces: true
+      name: runc
+    - features:
+        recursiveReadOnlyMounts: false
+        userNamespaces: false
+      name: runhcs-wcow-process
+kind: List
+metadata:
+  resourceVersion: ""

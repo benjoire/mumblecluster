@@ -1,0 +1,15 @@
+# runtime
+state/
+syncstream/
+cluster_snapshots/LKG-2026-03-21_23-14-20/etc-wireguard
+
+# temp
+*.log
+*.tmp
+
+# archives
+*.tar.gz
+
+# editor
+*.swp
+*.bak

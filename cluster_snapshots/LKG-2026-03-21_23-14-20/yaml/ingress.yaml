@@ -1,0 +1,242 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"mc-poc-arm64-ingress","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"proof-arm.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"mc-poc-arm64","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/proxy-set-headers: ingress-headers
+      nginx.ingress.kubernetes.io/server-snippet: |
+        set $req_start $msec;
+        more_set_headers "X-Request-Start: $req_start";
+        more_set_headers "X-Upstream-Response-Time: $request_time";
+    creationTimestamp: "2026-03-12T07:03:25Z"
+    generation: 1
+    name: mc-poc-arm64-ingress
+    namespace: poc
+    resourceVersion: "19037297"
+    uid: 73f13b0f-b7d5-425e-a103-7dd7209439b5
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: proof-arm.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: mc-poc-arm64
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"mc-poc-proof-ingress","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"proof.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"mc-poc-amd64","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header X-Upstream-Response-Time $request_time;
+        proxy_set_header X-Request-Start $msec;
+    creationTimestamp: "2026-03-08T12:24:21Z"
+    generation: 2
+    name: mc-poc-proof-ingress
+    namespace: poc
+    resourceVersion: "19039663"
+    uid: b57ff46a-057e-4a39-abc9-e99130443cb0
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: proof.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: mc-poc-amd64
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"mc-poc-roulette-ingress","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"proof-random.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"mc-poc-roulette","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header X-Upstream-Response-Time $request_time;
+        proxy_set_header X-Request-Start $msec;
+    creationTimestamp: "2026-03-14T23:53:43Z"
+    generation: 1
+    name: mc-poc-roulette-ingress
+    namespace: poc
+    resourceVersion: "19039831"
+    uid: 7cf85be9-7bdf-447c-bf57-15c43dbbf0a5
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: proof-random.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: mc-poc-roulette
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt-prod","nginx.ingress.kubernetes.io/proxy-body-size":"2048m","nginx.ingress.kubernetes.io/proxy-read-timeout":"3600","nginx.ingress.kubernetes.io/proxy-send-timeout":"3600","nginx.ingress.kubernetes.io/ssl-redirect":"false"},"name":"webtop-a2g","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"a2g.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"webtop-a2g","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["a2g.mumblehighlife.de"],"secretName":"a2g-mumblehighlife-tls"}]}}
+      nginx.ingress.kubernetes.io/proxy-body-size: 2048m
+      nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+      nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    creationTimestamp: "2026-03-07T17:20:57Z"
+    generation: 1
+    name: webtop-a2g
+    namespace: poc
+    resourceVersion: "18856114"
+    uid: a65a6885-a1f1-44d0-be57-d520f8971bc0
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: a2g.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: webtop-a2g
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - a2g.mumblehighlife.de
+      secretName: a2g-mumblehighlife-tls
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/auth-realm":"Authentication Required - MumbleCluster","nginx.ingress.kubernetes.io/auth-secret":"a2g-basic-auth","nginx.ingress.kubernetes.io/auth-type":"basic","nginx.ingress.kubernetes.io/ssl-redirect":"true"},"name":"webtop-a2g-debian","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"a2g-debian.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"webtop-a2g-debian","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+      nginx.ingress.kubernetes.io/auth-realm: Authentication Required - MumbleCluster
+      nginx.ingress.kubernetes.io/auth-secret: a2g-basic-auth
+      nginx.ingress.kubernetes.io/auth-type: basic
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    creationTimestamp: "2026-03-18T06:31:20Z"
+    generation: 1
+    name: webtop-a2g-debian
+    namespace: poc
+    resourceVersion: "18856108"
+    uid: 6c951309-6c25-4f5a-b78e-8cd3cc563ce9
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: a2g-debian.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: webtop-a2g-debian
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-http01
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt-http01","nginx.ingress.kubernetes.io/auth-realm":"MumbleCluster PoC - auth required","nginx.ingress.kubernetes.io/auth-secret":"webtop-htpasswd","nginx.ingress.kubernetes.io/auth-type":"basic","nginx.ingress.kubernetes.io/proxy-read-timeout":"3600","nginx.ingress.kubernetes.io/proxy-send-timeout":"3600"},"name":"webtop-https","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"desk.mumblehighlife.de","http":{"paths":[{"backend":{"service":{"name":"webtop","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["desk.mumblehighlife.de"],"secretName":"tls-desk-mumblehighlife-de"}]}}
+      nginx.ingress.kubernetes.io/auth-realm: MumbleCluster PoC - auth required
+      nginx.ingress.kubernetes.io/auth-secret: webtop-htpasswd
+      nginx.ingress.kubernetes.io/auth-type: basic
+      nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+      nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    creationTimestamp: "2026-01-18T02:56:31Z"
+    generation: 1
+    name: webtop-https
+    namespace: poc
+    resourceVersion: "18856100"
+    uid: d9bdcc86-5b5e-4125-8faf-94a6be5613f3
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: desk.mumblehighlife.de
+      http:
+        paths:
+        - backend:
+            service:
+              name: webtop
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - desk.mumblehighlife.de
+      secretName: tls-desk-mumblehighlife-de
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"whoami-ingress","namespace":"poc"},"spec":{"ingressClassName":"nginx","rules":[{"host":"whoami.test.local","http":{"paths":[{"backend":{"service":{"name":"whoami","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+    creationTimestamp: "2026-01-18T02:54:10Z"
+    generation: 1
+    name: whoami-ingress
+    namespace: poc
+    resourceVersion: "18856112"
+    uid: 2a987179-09bb-4c01-a6bf-0cf6342d0f42
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: whoami.test.local
+      http:
+        paths:
+        - backend:
+            service:
+              name: whoami
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.10.0.2
+kind: List
+metadata:
+  resourceVersion: ""

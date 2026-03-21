@@ -1,3 +1,0 @@
-NAMESPACE     NAME           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
-kube-system   cilium         3         3         3       3            3           kubernetes.io/os=linux   56d
-kube-system   cilium-envoy   3         3         2       3            2           kubernetes.io/os=linux   56d

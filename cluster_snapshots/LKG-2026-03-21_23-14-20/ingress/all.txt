@@ -1,0 +1,18 @@
+NAME                                            READY   STATUS    RESTARTS   AGE
+pod/ingress-nginx-controller-6fdf6bdb4c-65g4s   1/1     Running   0          11h
+
+NAME                                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+service/ingress-nginx-controller             NodePort    10.43.191.221   <none>        80:31584/TCP,443:31094/TCP   61d
+service/ingress-nginx-controller-admission   ClusterIP   10.43.141.36    <none>        443/TCP                      61d
+
+NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/ingress-nginx-controller   1/1     1            1           61d
+
+NAME                                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/ingress-nginx-controller-6bd79f4d5    0         0         0       61d
+replicaset.apps/ingress-nginx-controller-6fdf6bdb4c   1         1         1       11h
+replicaset.apps/ingress-nginx-controller-75bc64f575   0         0         0       6d22h
+
+NAME                                       STATUS     COMPLETIONS   DURATION   AGE
+job.batch/ingress-nginx-admission-create   Complete   1/1           6s         61d
+job.batch/ingress-nginx-admission-patch    Complete   1/1           6s         61d

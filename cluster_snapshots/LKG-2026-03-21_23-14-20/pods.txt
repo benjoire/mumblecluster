@@ -1,0 +1,27 @@
+NAMESPACE            NAME                                         READY   STATUS      RESTARTS         AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+cert-manager         cert-manager-86f5967f88-glrkd                1/1     Running     0                14h     10.0.0.166   bell-agent     <none>           <none>
+cert-manager         cert-manager-cainjector-74fc95566f-khddj     1/1     Running     0                14h     10.0.0.231   bell-agent     <none>           <none>
+cert-manager         cert-manager-webhook-76589d6cc6-lvv79        1/1     Running     0                14h     10.0.0.42    bell-agent     <none>           <none>
+default              tmp-shell                                    1/1     Running     0                4h8m    10.0.0.233   bell-agent     <none>           <none>
+ingress-nginx        ingress-nginx-controller-6fdf6bdb4c-65g4s    1/1     Running     0                11h     10.0.1.94    hetzner-cx22   <none>           <none>
+kube-system          cilium-envoy-9k2rn                           1/1     Running     1 (14h ago)      20d     10.10.0.2    hetzner-cx22   <none>           <none>
+kube-system          cilium-envoy-g8hrd                           1/1     Running     7 (6d12h ago)    35d     10.10.0.3    benq           <none>           <none>
+kube-system          cilium-envoy-pt9jc                           1/1     Running     73 (17h ago)     6d19h   10.10.0.4    bell-agent     <none>           <none>
+kube-system          cilium-jgcl9                                 1/1     Running     1 (14h ago)      20d     10.10.0.2    hetzner-cx22   <none>           <none>
+kube-system          cilium-operator-9b59548b-wt4f9               1/1     Running     0                14h     10.10.0.4    bell-agent     <none>           <none>
+kube-system          cilium-qrpvd                                 1/1     Running     2 (6d12h ago)    14d     10.10.0.3    benq           <none>           <none>
+kube-system          cilium-rwvbx                                 1/1     Running     0                4h1m    10.10.0.4    bell-agent     <none>           <none>
+kube-system          cloud-controller-manager-benq                1/1     Running     22 (6d12h ago)   20d     10.10.0.3    benq           <none>           <none>
+kube-system          etcd-benq                                    1/1     Running     2                14d     10.10.0.3    benq           <none>           <none>
+kube-system          helm-install-rke2-coredns-q56xb              0/1     Completed   0                20d     10.10.0.3    benq           <none>           <none>
+kube-system          kube-apiserver-benq                          1/1     Running     2                14d     10.10.0.3    benq           <none>           <none>
+kube-system          kube-controller-manager-benq                 1/1     Running     4 (6d12h ago)    14d     10.10.0.3    benq           <none>           <none>
+kube-system          kube-scheduler-benq                          1/1     Running     2 (6d12h ago)    14d     10.10.0.3    benq           <none>           <none>
+kube-system          rke2-coredns-rke2-coredns-6464f98784-dl526   1/1     Running     0                14h     10.0.0.252   bell-agent     <none>           <none>
+kube-system          rke2-coredns-rke2-coredns-6464f98784-mtl5j   0/1     Running     4 (6d12h ago)    24d     10.0.2.189   benq           <none>           <none>
+local-path-storage   local-path-provisioner-76d9dbd9b9-flw7l      1/1     Running     0                14h     10.0.0.222   bell-agent     <none>           <none>
+poc                  mc-poc-amd64-79c465d5fd-tfwvc                1/1     Running     0                113m    10.0.1.67    hetzner-cx22   <none>           <none>
+poc                  mc-poc-proof-5599ffc794-c5xkh                1/1     Running     0                113m    10.0.1.75    hetzner-cx22   <none>           <none>
+poc                  webtop-a2g-5cdbff8f68-z7d9d                  1/1     Running     0                14h     10.0.1.162   hetzner-cx22   <none>           <none>
+poc                  webtop-a2g-debian-558f4bf755-28sp5           1/1     Running     0                14h     10.0.1.33    hetzner-cx22   <none>           <none>
+poc                  whoami-6586bd767f-v62wm                      1/1     Running     0                14h     10.0.0.33    bell-agent     <none>           <none>

@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MC_ROOT="${MC_ROOT:-/data/github/mumblecluster}"
+MC_CORE="${MC_ROOT}/core"
+MC_STATE="${MC_ROOT}/state"
+
+export MC_RUNS_DIR="${MC_STATE}/runs"
+export MC_SYNCSTREAM_OUT_DIR="${MC_STATE}/syncstream"
+export MC_SNAP_DIR="${MC_STATE}/snapshots"
+
+mkdir -p "$MC_RUNS_DIR" "$MC_SYNCSTREAM_OUT_DIR" "$MC_SNAP_DIR"
+
+die() { echo "[mc] ERROR: $*" >&2; exit 1; }
+
+cmd="${1:-}"
+shift || true
+
+case "$cmd" in
+  run)
+    TITLE="${1:-}"
+    shift
+    [[ "$1" == "--" ]] || die "Expected -- after title"
+    shift
+
+    echo "[mc] PRE-HEALTH"
+    "${MC_CORE}/mc_health.sh" pre
+
+    echo "[mc] EXEC"
+    "${MC_ROOT}/tools/mc_run.sh" "$TITLE" -- "$@"
+    RC=$?
+
+    echo "[mc] POST-HEALTH"
+    "${MC_CORE}/mc_health.sh" post
+
+    echo "[mc] SNAPSHOT"
+    "${MC_CORE}/mc_snapshot.sh" "$TITLE"
+
+    echo "[mc] SYNCSTREAM"
+    "${MC_CORE}/mc_syncstream.sh" "$TITLE"
+
+    exit $RC
+    ;;
+
+  health)
+    "${MC_CORE}/mc_health.sh" "$@"
+    ;;
+
+  snapshot)
+    "${MC_CORE}/mc_snapshot.sh" "$@"
+    ;;
+
+  sync)
+    "${MC_CORE}/mc_syncstream.sh" "$@"
+    ;;
+
+  *)
+    echo "Usage:"
+    echo "  mc run \"Title\" -- <cmd>"
+    echo "  mc health"
+    echo "  mc snapshot"
+    echo "  mc sync"
+    exit 1
+    ;;
+esac

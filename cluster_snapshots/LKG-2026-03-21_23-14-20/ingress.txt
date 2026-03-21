@@ -1,0 +1,8 @@
+NAMESPACE   NAME                      CLASS   HOSTS                            ADDRESS     PORTS     AGE
+poc         mc-poc-arm64-ingress      nginx   proof-arm.mumblehighlife.de      10.10.0.2   80        9d
+poc         mc-poc-proof-ingress      nginx   proof.mumblehighlife.de          10.10.0.2   80        13d
+poc         mc-poc-roulette-ingress   nginx   proof-random.mumblehighlife.de   10.10.0.2   80        6d23h
+poc         webtop-a2g                nginx   a2g.mumblehighlife.de            10.10.0.2   80, 443   14d
+poc         webtop-a2g-debian         nginx   a2g-debian.mumblehighlife.de     10.10.0.2   80        3d16h
+poc         webtop-https              nginx   desk.mumblehighlife.de           10.10.0.2   80, 443   62d
+poc         whoami-ingress            nginx   whoami.test.local                10.10.0.2   80        62d

@@ -1,0 +1,4 @@
+NAME           READY   STATUS    RESTARTS        AGE    IP          NODE           NOMINATED NODE   READINESS GATES
+cilium-jgcl9   1/1     Running   1 (14h ago)     20d    10.10.0.2   hetzner-cx22   <none>           <none>
+cilium-qrpvd   1/1     Running   2 (6d12h ago)   14d    10.10.0.3   benq           <none>           <none>
+cilium-rwvbx   1/1     Running   0               4h1m   10.10.0.4   bell-agent     <none>           <none>
