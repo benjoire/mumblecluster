@@ -89,3 +89,23 @@ https://proof.mumblehighlife.de/
 
 This page is served through the MumbleCluster ingress layer and demonstrates
 cross-node routing through the cluster infrastructure.
+
+---
+
+## 🔒 Security & Snapshot Policy
+
+MumbleCluster uses a structured LKG (Last Known Good) snapshot system for observability and reproducibility.
+
+**Important:**
+- Snapshots intentionally exclude:
+  - credentials (VPN, WireGuard, tokens)
+  - control-plane secrets
+  - node authentication material
+- Only cluster topology, state, and observability data are included.
+
+All snapshots are:
+- deterministic
+- hashed (sha256)
+- cryptographically signed (GPG)
+
+If you believe sensitive data is exposed, please report it immediately.
