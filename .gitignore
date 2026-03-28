@@ -6,11 +6,8 @@ cluster_snapshots/LKG-*/etc-wireguard
 # temp
 *.log
 *.tmp
-
-# archives|backups
-*.tar.gz
-*.bak
-
-# editor
 *.swp
+
+# archives / backups
+*.tar.gz
 *.bak
