@@ -1,6 +1,6 @@
 # GitHub Cheat-Sheet — MumbleCluster
 
-## Standard docs push flow
+## SOP GitHub AI** generated
 
 ```bash
 # 1) go to repo
