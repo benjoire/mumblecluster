@@ -114,26 +114,3 @@ Expected repo path:
 ```bash
 cd /data/github/mumblecluster
 ```
-
-### Sensitive alias throws `unknown switch 'E'`
-Cause:
-- alias was created without shell execution mode (`!`)
-
-Fix:
-```bash
-git config --global alias.sensitive '!git ls-files | grep -Ei "(\.pem$|\.key$|token|secret|wireguard|openvpn|credential|passwd|htpasswd)" || true'
-```
-
-### `.gitignore` does not seem to work
-Possible cause:
-- file is already tracked
-
-Check:
-```bash
-git ls-files | grep '\.bak$'
-```
-
-Untrack while keeping local file:
-```bash
-git rm --cached <file>
-```
