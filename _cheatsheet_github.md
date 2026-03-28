@@ -30,13 +30,13 @@ git config --global alias.preflight '!pwd && echo && git rev-parse --show-toplev
 git preflight
 
 # 6) stage only intended files
-git add .gitignore _cheatsheet_github.md
+git add .gitignore _cheatsheet_github.md secrets_inventory_summary.txt
 
 # 7) verify what is staged
 git diff --cached
 
 # 8) commit
-git commit -m "github: flows hardened _cheatsheet_github.md"
+git commit -m "github: hardened SOP _cheatsheet_github.md"
 
 # 9) push to origin main
 git push origin main

@@ -2,6 +2,7 @@
 state/
 syncstream/
 cluster_snapshots/LKG-*/etc-wireguard
+**/secrets_meta.txt
 
 # temp
 *.log

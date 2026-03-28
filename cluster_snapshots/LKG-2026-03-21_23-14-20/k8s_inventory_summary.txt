@@ -1,0 +1,5 @@
+cert-manager: 2 secrets
+default: 1 secret
+ingress-nginx: 1 secret
+kube-system: multiple operational and helm-managed secrets
+poc: multiple TLS and auth-related secrets
