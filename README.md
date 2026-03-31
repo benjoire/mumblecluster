@@ -64,7 +64,7 @@ Ingress entrypoint is currently anchored on **HEX22**.
 
 A running Proof-of-Concept instance of the cluster is publicly accessible:
 
-**https://proof.mumblehighlife.de/**
+**[https://proof.mumblehighlife.de/](https://proof-random.mumblehighlife.de/)**
 
 This page is served through the MumbleCluster ingress layer and demonstrates live traffic flowing through the cluster infrastructure.
 
