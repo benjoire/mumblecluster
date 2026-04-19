@@ -85,11 +85,11 @@ These prove that traffic can cross:
 ### 2. Selkies / Webtop lane
 The cluster currently carries a browser-based desktop lane through Selkies-style webtop services.
 
-The current preferred path is the **Debian / Traefik lane**:
+The current preferred path is the **Debian / Traefik lane**.
 
-- Authentication required | Not yet Disclosed
+This lane is now front-gated through **Traefik BasicAuth** and is intentionally not disclosed in detail in the public README.
 
-This is the active replacement direction for the older nginx-bound desktop exposure.
+It is the active replacement direction for the older nginx-bound desktop exposure.
 
 ### 3. Coder lane
 The cluster also carries a code-server / Coder-style development lane as part of its service fabric and operator workflow.
@@ -148,24 +148,6 @@ Generated health and state artifacts.
 Project logic and evolving runtime material.
 
 ---
-
-## Public-safe snapshot policy
-
-MumbleCluster now distinguishes between:
-
-- **private/internal sweeps**
-- **GitHub-safe public sweeps**
-
-The public-safe snapshot lane is designed to expose architecture truth and health truth without publishing secret material.
-
-Public-safe artifacts intentionally avoid:
-
-- private keys
-- raw WireGuard peer secrets
-- token-bearing config
-- raw host route inventories
-- raw port inventories
-- secret-adjacent dumps
 
 The current public-safe baseline is represented through the **GHSAFE** snapshot lane and the `LKG-LATEST` pointer.
 

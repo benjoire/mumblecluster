@@ -31,6 +31,8 @@
 ### 🖥️ Service Lanes
 - Confirmed active **Selkies / webtop Debian lane** through Traefik:
   - `a2g-debian.mumblehighlife.de`
+  - Restored front-gate protection for the live Debian/Selkies lane through **Traefik BasicAuth**
+  - Verified public access now returns `401 Unauthorized` until credentials are supplied
 - Removed obsolete nginx-bound ingress objects:
   - `webtop-a2g`
   - `webtop-https`
