@@ -1,0 +1,4 @@
+NAMESPACE   NAME                              CLASS     HOSTS                            ADDRESS     PORTS   AGE
+poc         mc-poc-proof-ingress-traefik      traefik   proof.mumblehighlife.de          <redacted-ip>   80      14d
+poc         mc-poc-roulette-ingress-traefik   traefik   proof-random.mumblehighlife.de   <redacted-ip>   80      14d
+poc         webtop-a2g-debian-traefik         traefik   a2g-debian.mumblehighlife.de     <redacted-ip>   80      14d

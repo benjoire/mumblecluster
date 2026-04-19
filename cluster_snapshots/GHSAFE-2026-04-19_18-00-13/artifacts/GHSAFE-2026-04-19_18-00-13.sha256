@@ -1,0 +1,13 @@
+93673c93a57db505385374c35d7e1dbb64e5125645e098ff4546a6b49e41261a  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/architecture.summary.md
+b3027a3e1c733da5935b61f4f3ffd9be102d7d45fae85053c4bf7187d55cd2a3  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/control-plane.summary.public.txt
+075030bf751a99492ba736c0a2cf0b72aa04ec8c2a98657c53802ced157f251e  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingressclass.summary.public.txt
+95bf35aac1d0a1538f07305e58a217cdebfc8cd1bf208450d744aecb1e6b0223  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingress/ingress_all.public.yaml
+e3ae457a7646da6955b3816125e8007794e50dc20bdd03326aa86b130d8a1f05  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingress/ingressclass.public.yaml
+95bf35aac1d0a1538f07305e58a217cdebfc8cd1bf208450d744aecb1e6b0223  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingress/poc_ingress.public.yaml
+d10ea5ba705027ec228d1ed0c0458a83216928ace6c3cf1dd024e2ca603c71e9  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingress.summary.public.txt
+ae08ad1d2e8d1e7eadb21638d9c5e61354af6cf9c9f579aa5e12675680d0d485  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/ingress/traefik_core.public.yaml
+b3ae816a8c36752f8416ee4a99903dd926beec6b6564dfdebf3a051624fa98e4  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/kubectl_version.public.txt
+98ba4c0653c11454314010c65e8eb7acef4223624452d8d696c712020ecb5a13  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/network_doctrine.summary.txt
+8812a7df33700dba870905ebc08d130738a479ee77d4143b11fd93cd0f3c2126  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/nodes.summary.public.txt
+b12ac7e80517af75c98cd7e0575ca63878067f7aeb8f45743deede2ce84b415b  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/services.summary.public.txt
+4ab4bdd2b10ab8aed5b87484de14f26aec2673f0e8bb467a97c7354841c7b604  /data/github/mumblecluster/cluster_snapshots/GHSAFE-2026-04-19_18-00-13/versions.summary.txt

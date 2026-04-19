@@ -1,6 +1,6 @@
 {
-  "lkg": "LKG-2026-03-21_23-14-20",
-  "timestamp": "2026-03-21T23:37:21Z",
+  "lkg": "GHSAFE-2026-04-19_18-00-13",
+  "timestamp": "2026-04-19T18:40:05Z",
   "node": "BenQ",
-  "commit_intent": "MC Protocol v2 baseline"
+  "commit_intent": "MC public-safe baseline after Quorum3 and Traefik cutover"
 }

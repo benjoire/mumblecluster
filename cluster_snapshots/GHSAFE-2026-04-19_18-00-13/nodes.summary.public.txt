@@ -1,0 +1,6 @@
+NAME           STATUS   ROLES                       AGE   VERSION
+bell-agent     Ready    <none>                      11h   v1.34.5+rke2r1
+benq           Ready    control-plane,etcd,master   64d   v1.34.6+rke2r3
+hetzner-cx22   Ready    <none>                      48d   v1.33.6+rke2r1
+minisone       Ready    control-plane,etcd          10h   v1.34.6+rke2r3
+ministwo       Ready    control-plane,etcd          11h   v1.34.6+rke2r3

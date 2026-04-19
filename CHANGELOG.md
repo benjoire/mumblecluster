@@ -1,5 +1,77 @@
 # 🧬 Changelog
 
+## [2026-04-19] — Quorum Expansion, Traefik-Only Ingress, GHSAFE LKG
+
+### 🧠 Control Plane
+- Expanded MumbleCluster control plane from **1 → 3 controllers**
+- Active quorum now:
+  - **BENQ** — control-plane, etcd, transit hub
+  - **MinisONE** — control-plane, etcd
+  - **MinisTWO** — control-plane, etcd
+- Verified healthy 3-node control-plane footprint:
+  - `etcd`
+  - `kube-apiserver`
+  - `kube-controller-manager`
+  - `kube-scheduler`
+
+### 🌐 Ingress / Edge
+- Retired the old packaged **rke2-ingress-nginx** lane
+- Normalized Kubernetes ingress to **Traefik-only**
+- Confirmed only Traefik ingresses remain cluster-wide
+- Preserved **HEX22 NGINX** as the public upstream edge in front of the cluster ingress path
+
+### 🔧 Incident + Resolution
+- Identified packaged `rke2-ingress-nginx` reconciliation as the cause of edge disruption on HEX22
+- Observed unexpected fallback to the Kubernetes fake ingress certificate on local 80/443 testing
+- Disabled packaged ingress-nginx and restored intended edge behavior:
+  - proper domain certificates on HEX22
+  - Traefik-backed proof lane recovery
+  - correct vhost behavior for public-facing domains
+
+### 🖥️ Service Lanes
+- Confirmed active **Selkies / webtop Debian lane** through Traefik:
+  - `a2g-debian.mumblehighlife.de`
+- Removed obsolete nginx-bound ingress objects:
+  - `webtop-a2g`
+  - `webtop-https`
+  - `whoami-ingress`
+- Preserved trajectory toward:
+  - **Traefik ingress**
+  - **HEX22 edge mediation**
+  - service lanes for PoC, desktop, and tooling workloads
+
+### 🤖 Tooling / Execution
+- Confirmed architecture direction includes:
+  - **Coder / code-server lane**
+  - **MC-Inspector**
+  - **HOTPIPE**
+  - broker/dispatcher-mediated execution paths
+  - QEMU-backed execution integration with MumbleCluster
+
+### 📦 Public Snapshot / GitHub
+- Created new **GHSAFE** public-safe snapshot lane
+- Repointed `LKG-LATEST` to:
+  - `GHSAFE-2026-04-19_18-00-13`
+- Updated `LKG_STATUS.json` to the public-safe baseline
+- Added sanitized node bundles for:
+  - BENQ
+  - MinisONE
+  - MinisTWO
+  - BELL
+  - HEX22
+- Normalized permissions/ownership for GitHub publication flow
+
+### 📝 Documentation
+- Refreshed README direction to reflect:
+  - Quorum expansion
+  - Traefik-only ingress
+  - HEX22 NGINX edge
+  - Selkies / Coder / HOTPIPE service lanes
+- Removed explicit README links for:
+  - `proof.mumblehighlife.de`
+  - `a2g-debian.mumblehighlife.de`
+  because they are not the default public entry / not yet protected to the desired auth standard
+
 ## [2026-03-28] — Datapath Reframing, Dual-Lane Networking Model & Docs Update
 
 ### 🌐 Networking Findings

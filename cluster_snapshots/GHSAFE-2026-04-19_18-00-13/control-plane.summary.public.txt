@@ -1,0 +1,24 @@
+cilium-72lvz                                      1/1     Running     0                11h    <redacted-ip>    bell-agent     <none>           <none>
+cilium-envoy-bx6jj                                1/1     Running     0                27d    <redacted-ip>    benq           <none>           <none>
+cilium-envoy-fjcjc                                1/1     Running     0                27d    <redacted-ip>    hetzner-cx22   <none>           <none>
+cilium-envoy-pps7f                                1/1     Running     0                11h    <redacted-ip>   ministwo       <none>           <none>
+cilium-envoy-q9whl                                1/1     Running     0                11h    <redacted-ip>    bell-agent     <none>           <none>
+cilium-envoy-tfjmd                                1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+cilium-f4q99                                      1/1     Running     0                11h    <redacted-ip>   ministwo       <none>           <none>
+cilium-f5sqd                                      1/1     Running     0                8d     <redacted-ip>    benq           <none>           <none>
+cilium-h2z4h                                      1/1     Running     0                23d    <redacted-ip>    hetzner-cx22   <none>           <none>
+cilium-mr2kr                                      1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+cilium-operator-6b74c95fd8-9qw4m                  1/1     Running     81 (8h ago)      27d    <redacted-ip>    benq           <none>           <none>
+cilium-operator-6b74c95fd8-dntf9                  1/1     Running     0                9h     <redacted-ip>    bell-agent     <none>           <none>
+etcd-benq                                         1/1     Running     0                7h2m   <redacted-ip>    benq           <none>           <none>
+etcd-minisone                                     1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+etcd-ministwo                                     1/1     Running     0                11h    <redacted-ip>   ministwo       <none>           <none>
+kube-apiserver-benq                               1/1     Running     0                7h3m   <redacted-ip>    benq           <none>           <none>
+kube-apiserver-minisone                           1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+kube-apiserver-ministwo                           1/1     Running     10 (7h54m ago)   11h    <redacted-ip>   ministwo       <none>           <none>
+kube-controller-manager-benq                      1/1     Running     1 (7h3m ago)     7h3m   <redacted-ip>    benq           <none>           <none>
+kube-controller-manager-minisone                  1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+kube-controller-manager-ministwo                  1/1     Running     0                11h    <redacted-ip>   ministwo       <none>           <none>
+kube-scheduler-benq                               1/1     Running     0                7h3m   <redacted-ip>    benq           <none>           <none>
+kube-scheduler-minisone                           1/1     Running     0                10h    <redacted-ip>   minisone       <none>           <none>
+kube-scheduler-ministwo                           1/1     Running     0                11h    <redacted-ip>   ministwo       <none>           <none>

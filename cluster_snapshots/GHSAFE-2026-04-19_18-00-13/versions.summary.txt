@@ -1,0 +1,3 @@
+snapshot_utc=2026-04-19T18:00:14Z
+repo_root=/data/github/mumblecluster
+controller_plane_expected=3

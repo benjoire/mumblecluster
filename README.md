@@ -1,213 +1,212 @@
-[![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof.mumblehighlife.de/)
-![Status](https://img.shields.io/badge/status-experimental-orange)
-![Architecture](https://img.shields.io/badge/arch-ARM%20%7C%20AMD64-blue)
+[![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof-random.mumblehighlife.de/)
+![Status](https://img.shields.io/badge/status-active%20prototype-brightgreen)
+![Quorum](https://img.shields.io/badge/control--plane-3--node-blue)
+![Ingress](https://img.shields.io/badge/ingress-Traefik-blueviolet)
 ![Networking](https://img.shields.io/badge/network-Cilium%20eBPF-green)
 ![Mesh](https://img.shields.io/badge/mesh-WireGuard-purple)
+![Architecture](https://img.shields.io/badge/arch-ARM%20%7C%20AMD64-blue)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 # MumbleCluster
 
-MumbleCluster explores how heterogeneous machines across LAN and WAN can be assimilated into a unified Kubernetes runtime.
+MumbleCluster is a heterogeneous Kubernetes runtime that links LAN and WAN machines into one operational cluster across mixed hardware, mixed networks, and mixed CPU architectures.
 
-The cluster currently spans:
+The current platform combines:
 
-- BENQ — control plane
-- HEX22 — WAN worker / ingress node
-- BELL — LAN worker
+- **RKE2 / Kubernetes**
+- **Cilium eBPF**
+- **WireGuard underlay**
+- **Traefik ingress**
+- **HEX22 NGINX public edge**
+- **Mixed AMD64 and ARM infrastructure**
 
-Networking is provided through WireGuard and Cilium eBPF, allowing workloads to route transparently across nodes and networks.
-
-The platform integrates:
-
-- Kubernetes (RKE2)
-- Cilium eBPF networking
-- WireGuard overlay networking
-- Mixed CPU architectures (ARM / AMD64)
-- Cross-network orchestration across LAN and WAN nodes
-
-The project explores how independent machines can be assimilated into a coherent distributed runtime capable of orchestrating compute workloads across networks, architectures, and hardware generations.
+The project is not just about “running Kubernetes on multiple boxes.”  
+It is about building a modular distributed runtime that can absorb different machines, networks, and service roles into one coherent operational fabric.
 
 ---
 
-## Repository Structure
+## Current Cluster Topology
+
+### Control plane
+- **BENQ** — control-plane, etcd, transit hub
+- **MinisONE** — control-plane, etcd
+- **MinisTWO** — control-plane, etcd
+
+### Workers
+- **HEX22** — WAN worker, Traefik node, public edge companion
+- **BELL** — LAN worker
+
+This means the cluster now runs with a **3-node control-plane quorum** instead of a single-controller baseline.
+
+---
+
+## What changed recently
+
+### Quorum expansion
+The control plane was expanded from **1 → 3 controllers**, turning the cluster from a single sacred controller model into a real quorum-backed control plane.
+
+That materially improves:
+
+- controller survivability
+- etcd durability
+- maintenance flexibility
+- cluster-state continuity during single-node loss or restart
+
+### Ingress transition
+The Kubernetes ingress layer was normalized to **Traefik-only**.
+
+That means:
+
+- **Traefik** is now the active cluster ingress controller
+- old packaged **ingress-nginx** was retired
+- **HEX22 NGINX** remains the public upstream edge in front of the cluster lane
+
+This gives the project a cleaner edge model:
+
+**Internet → HEX22 NGINX → Traefik → Service → Pod**
+
+---
+
+## Live lanes and service direction
+
+### 1. Proof lanes
+Public proof pages currently validate the live edge-to-cluster path:
+
+- **https://proof-random.mumblehighlife.de/**
+
+These prove that traffic can cross:
+
+- public edge
+- ingress
+- service routing
+- pod delivery
+- mixed-node execution paths
+
+### 2. Selkies / Webtop lane
+The cluster currently carries a browser-based desktop lane through Selkies-style webtop services.
+
+The current preferred path is the **Debian / Traefik lane**:
+
+- Authentication required | Not yet Disclosed
+
+This is the active replacement direction for the older nginx-bound desktop exposure.
+
+### 3. Coder lane
+The cluster also carries a code-server / Coder-style development lane as part of its service fabric and operator workflow.
+
+This matters because MumbleCluster is not only a networking experiment; it is becoming an actual platform for developer-facing workloads.
+
+### 4. HOTPIPE / MC-Inspector lane
+A separate but connected service lane links ChatGPT-side tooling to cluster-adjacent execution paths through:
+
+- **MC-Inspector**
+- **HOTPIPE**
+- **broker / dispatcher logic**
+- **QEMU-backed execution**
+
+This lane is important because it demonstrates controlled remote execution and tool mediation beyond ordinary web service hosting.
+
+In practical terms, the project is already moving toward a model where MumbleCluster can host not only websites and PoCs, but also mediated execution paths, inspection lanes, and operator tooling.
+
+---
+
+## Networking doctrine
+
+MumbleCluster uses a **WireGuard + Cilium** model with a clean operational distinction:
+
+### WireGuard
+WireGuard acts as the **underlay identity and transport fabric**.
+
+The cluster currently follows a **/32 identity model** with BENQ acting as the practical transit hub for routed peer reachability.
+
+### Cilium
+Cilium provides the Kubernetes dataplane and service fabric.
+
+The important result is:
+
+- **L3/L4 delivery is proven**
+- **cross-metal / cross-network / cross-arch delivery is proven**
+- L7 pathing is no longer vague theory; it is now being shaped through the Traefik + edge model
+
+---
+
+## Repository structure
 
 `docs/`  
-Architecture documentation and Proof-of-Concept records.
+Architecture notes, operational doctrine, and PoC writeups.
 
 `cluster_snapshots/`  
-Historical captures of cluster state used for debugging, reproducibility, and infrastructure archaeology.
+Public-safe and internal cluster state captures.
 
-`scripts/`  
-Operational tooling for cluster maintenance and automation.
+`tools/`  
+Operational tooling, wrappers, sweep scripts, sealing logic, and sync helpers.
 
-`syncstream/`  
-Protocol-driven coordination layer for operations scheduling, telemetry, and orchestration metadata.
+`state/`  
+Generated health and state artifacts.
 
----
-
-## Cluster Status
-
-Active branch: `main`
-
-**Controller node**
-- BENQ
-
-**Worker nodes**
-- HEX22 — WAN worker
-- BELL — LAN worker
-
-Ingress entrypoint is currently anchored on **HEX22**.
+`core/`  
+Project logic and evolving runtime material.
 
 ---
 
-## Live Demonstration
+## Public-safe snapshot policy
 
-A running Proof-of-Concept instance of the cluster is publicly accessible:
+MumbleCluster now distinguishes between:
 
-**[https://proof.mumblehighlife.de/](https://proof-random.mumblehighlife.de/)**
+- **private/internal sweeps**
+- **GitHub-safe public sweeps**
 
-This page is served through the MumbleCluster ingress layer and demonstrates live traffic flowing through the cluster infrastructure.
+The public-safe snapshot lane is designed to expose architecture truth and health truth without publishing secret material.
 
----
+Public-safe artifacts intentionally avoid:
 
-## Networking Findings
+- private keys
+- raw WireGuard peer secrets
+- token-bearing config
+- raw host route inventories
+- raw port inventories
+- secret-adjacent dumps
 
-One of the most important outcomes of the current PoC phase was a correction in how the datapath was being interpreted.
-
-### What the PoC has already proven
-
-The current stable lane demonstrates:
-
-- cross-metal traffic
-- cross-network traffic
-- cross-architecture traffic
-- Kubernetes service abstraction across heterogeneous nodes
-- Cilium eBPF datapath operation across tunneled infrastructure
-
-In practical terms, the cluster currently proves **L3/L4 delivery over Cilium eBPF VXLAN traffic**, while the broader node-to-node mesh is carried across networks through **WireGuard encapsulation**.
-
-This means the project has already established a working and reproducible baseline for:
-
-**cross-metal | cross-network | cross-arch**
-
-### Misdiagnosis corrected
-
-Earlier debugging language described the issue as:
-
-> VXLAN reverse-path syndrome
-
-That wording is no longer considered accurate.
-
-A better interpretation is:
-
-- **L7-over-overlay path ambiguity**
-- **Envoy/tunnel observability distortion under stacked encapsulation**
-
-The important distinction is that the base **L3/L4 datapath was not fundamentally broken**.  
-What became difficult to reason about was the moment **L7 proxying, Envoy behavior, overlay routing, and stacked encapsulation** all entered the same traffic path.
-
-So the current conclusion is:
-
-- **L3/L4 baseline:** proven
-- **L7 behavior:** still under active construction
+The current public-safe baseline is represented through the **GHSAFE** snapshot lane and the `LKG-LATEST` pointer.
 
 ---
 
-## Dual-Lane Networking Model
+## Current operational picture
 
-At the current stage, MumbleCluster is best understood as operating with two separate networking lanes.
+MumbleCluster now stands on four real foundations:
 
-### 1. Secured fallback lane
+1. **3-node control-plane quorum**
+2. **Traefik-only Kubernetes ingress**
+3. **HEX22 NGINX edge mediation**
+4. **service lanes beyond static PoCs**, including:
+   - proof pages
+   - Selkies desktop
+   - Coder / code-server
+   - HOTPIPE / MC-Inspector / QEMU execution path
 
-This is the current known-good baseline and the operational safety lane.
-
-**Cilium ConfigMap profile**
-```yaml
-routing-mode: tunnel
-auto-direct-node-routes: "false"
-```
-
-This lane prioritizes:
-
-- stable L3/L4 behavior
-- tunneled overlay transport
-- reproducible cross-node routing
-- reliable fallback for proof preservation and cluster continuity
-
-This is the lane that currently backs the validated PoC baseline.
-
-### 2. L7 toggle lane
-
-This is the active development and construction lane for ingress-path refinement.
-
-**Cilium ConfigMap profile**
-```yaml
-routing-mode: native
-auto-direct-node-routes: "true"
-```
-
-This lane is intended to:
-
-- reduce overlay ambiguity
-- simplify path reasoning
-- support deterministic ingress → service → pod behavior
-- improve the signal quality of L7 observability
-
-This path remains **experimental** until deterministic L7 behavior is fully established.
+That combination is what turns the project from a cluster experiment into an early distributed runtime platform.
 
 ---
 
-## Current Position
+## Project direction
 
-The project now explicitly distinguishes between:
+The near-term direction is clear:
 
-- a **known-good L3/L4 fallback lane**
-- an **L7 development lane under active construction**
+- stabilize the Traefik-only ingress lane
+- audit and normalize cluster services
+- freeze blueprint-grade configuration and documentation
+- publish GitHub-safe state and architecture artifacts
+- continue evolving MumbleCluster as a modular distributed runtime
 
-That distinction is intentional.
-
-MumbleCluster has already proven that it can move traffic correctly across heterogeneous infrastructure using Cilium eBPF, VXLAN, WireGuard, and mixed CPU architectures.
-
-The remaining task is not to prove basic delivery again, but to finalize **deterministic L7 behavior**, with clean ingress, service routing, and observability semantics.
-
-Until that work is complete, the repository will treat L3/L4 stability and L7 experimentation as two distinct operational states.
-
----
-
-## Project Direction
-
-MumbleCluster aims to evolve into a modular distributed runtime capable of assimilating heterogeneous compute nodes into a unified orchestration system.
-
-The platform serves as a foundation for experimental infrastructure research involving distributed compute, networking, and automation.
-
-The current emphasis is on turning the already-proven multi-node L3/L4 datapath into a fully deterministic L7-capable service fabric.
+The long-term direction remains broader:
+to assimilate heterogeneous compute, network edge, service logic, and execution tooling into one unified orchestration environment.
 
 ---
 
 ## Collaboration
 
-Questions, ideas, or collaboration proposals are welcome.
+Questions, ideas, and collaboration proposals are welcome.
 
 Please open a **GitHub Issue** or **Discussion** in this repository.
 
 Project maintainer: **@benjoire**
-
----
-
-## 🔒 Security & Snapshot Policy
-
-MumbleCluster uses a structured LKG (Last Known Good) snapshot system for observability and reproducibility.
-
-**Important:**
-- Snapshots intentionally exclude:
-  - credentials (VPN, WireGuard, tokens)
-  - control-plane secrets
-  - node authentication material
-- Only cluster topology, state, and observability data are included.
-
-All snapshots are:
-- deterministic
-- hashed (sha256)
-- cryptographically signed (GPG)
-
-If you believe sensitive data is exposed, please report it immediately.
