@@ -70,8 +70,8 @@
   - HEX22 NGINX edge
   - Selkies / Coder / HOTPIPE service lanes
 - Removed explicit README links for:
-  - `****`
-  - `****`
+  - `a2g-debian.mumblehighlife.de`
+  - `https://proof.mumblehighlife.de/`
   because they are not the default public entry / not yet protected to the desired auth standard
 
 ## [2026-03-28] — Datapath Reframing, Dual-Lane Networking Model & Docs Update
