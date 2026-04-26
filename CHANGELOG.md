@@ -1,5 +1,27 @@
 # 🧬 Changelog
 
+## 2026-04-26
+
+### Added
+- `tools/storage-host-claim/` helper layout with:
+  - `storage-host-claim.sh`
+  - `storage-host-claim.env.example`
+  - WG-safe example manifests
+- `docs/storage-hotplug-doctrine.md`
+
+### Proven
+- manual storage-host handover across controller nodes
+- WG-safe validation lane recovery on `hetzner-cx22`
+- restored MC-PVC-backed workload landing for `webtop-a2g-debian` on `hetzner-cx22`
+- real file digestion through `/data/certshot_latest.csv` inside the running workload
+
+### Learned
+- validation PVC/PV objects must be refreshed after storage-host identity switches because existing PVs can retain the previous NFS server identity
+
+### Notes
+- WG-safe deploy example is a seed manifest only; active NFS server identity is runtime-patched by the storage-host claim workflow
+- combined claim-and-refresh flow still needs hardening around provisioner and PVC/PV lifecycle timing
+
 ## [2026-04-19] — Quorum Expansion, Traefik-Only Ingress, GHSAFE LKG
 
 ### 🧠 Control Plane

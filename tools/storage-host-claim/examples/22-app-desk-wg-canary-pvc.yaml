@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wg-canary-pvc
+  namespace: app-desk
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: mc-pvcstore-wg
+  resources:
+    requests:
+      storage: 1Gi

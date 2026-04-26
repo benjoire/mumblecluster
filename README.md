@@ -192,3 +192,58 @@ Questions, ideas, and collaboration proposals are welcome.
 Please open a **GitHub Issue** or **Discussion** in this repository.
 
 Project maintainer: **@benjoire**
+
+## Storage-backed workload landing and hot-plug doctrine
+
+MumbleCluster now includes a validated storage-backed application lane for remote worker execution over the WG-safe MC-PVC path.
+
+### What was proven
+
+- manual storage-host handover across Quorum-3 controller nodes
+- WG-safe validation lane for remote worker storage consumption
+- repeated canary validation on `hetzner-cx22`
+- real workload validation with `webtop-a2g-debian` on `hetzner-cx22`
+
+This moved the storage story from PVC smoke tests to a real application proof.
+
+### Operational rule
+
+After a storage-host identity switch, the validation PVC/PV lane must be refreshed before trusting the WG-safe canary again.
+
+Reason:
+existing PV objects can retain the previous NFS server identity even after the active storage host and provisioner target have changed.
+
+### Real workload proof
+
+The `webtop-a2g-debian` workload in namespace `app-desk` was restored to `Running` on `hetzner-cx22`, with live service endpoints re-established and both storage-backed mounts active from the current NFS host. A real `CERTSHOT` CSV was then accessed inside the workload from `/data/certshot_latest.csv`, proving end-to-end remote workload consumption on the MC-PVC storage lane.
+
+### Tooling
+
+A repo-ready helper was added under:
+
+- `tools/storage-host-claim/`
+
+Current model:
+
+- local validation on the node physically holding the storage device:
+  - `--check`
+  - `--facts`
+- remote cluster mutation from a kubectl-capable controller:
+  - `--claim-remote`
+
+Included examples:
+
+- WG-safe provisioner seed manifest
+- WG-safe StorageClass
+- canary PVC and pod manifests
+- sanitized example env profile
+
+### Current limitation
+
+The combined refresh automation still needs hardening around:
+
+- provisioner bring-up ordering
+- stale PV cleanup timing
+- manifest-path validation on all controller nodes
+
+Until then, treat the helper as repo-worthy and operationally useful, but not yet fully final in its one-shot mode.

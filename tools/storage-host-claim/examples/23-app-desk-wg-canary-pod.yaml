@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wg-canary-pod
+  namespace: app-desk
+  labels:
+    app: wg-canary-pod
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: hetzner-cx22
+  containers:
+    - name: canary
+      image: busybox:1.36
+      command: ["/bin/sh", "-c"]
+      args:
+        - >
+          echo "wg-canary $(date -Iseconds)" > /data/probe.txt &&
+          sleep 3600
+      volumeMounts:
+        - name: data
+          mountPath: /data
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: wg-canary-pvc
+  restartPolicy: Always
