@@ -1,0 +1,27 @@
+persistence:
+  enabled: true
+  storageClassName: mc-pvcstore-wg
+  size: 10Gi
+
+service:
+  type: ClusterIP
+
+adminUser: admin
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus-WG
+        type: prometheus
+        access: proxy
+        url: http://mc-prometheus-wg-server.mc-observability.svc.cluster.local
+        isDefault: true

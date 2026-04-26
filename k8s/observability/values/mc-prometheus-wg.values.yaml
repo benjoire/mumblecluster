@@ -1,0 +1,30 @@
+alertmanager:
+  enabled: false
+
+pushgateway:
+  enabled: false
+
+server:
+  persistentVolume:
+    enabled: true
+    storageClass: mc-pvcstore-wg
+    size: 20Gi
+
+  retention: "7d"
+
+  service:
+    type: ClusterIP
+
+  resources:
+    requests:
+      cpu: 150m
+      memory: 512Mi
+    limits:
+      cpu: 1500m
+      memory: 2Gi
+
+kube-state-metrics:
+  enabled: true
+
+prometheus-node-exporter:
+  enabled: false

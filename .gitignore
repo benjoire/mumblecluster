@@ -12,3 +12,16 @@ cluster_snapshots/LKG-*/etc-wireguard
 # archives / backups
 *.tar.gz
 *.bak
+cluster_snapshots/helm-readout-*/
+cluster_snapshots/helm-readout-*.tar.gz
+
+# MC private/runtime snapshots
+cluster_snapshots/obs-sandbox-*/
+cluster_snapshots/helm-readout-*/
+cluster_snapshots/helm-readout-*.tar.gz
+
+# Live Helm dumps: private/noisy runtime state
+k8s/observability/values/*.live.values.yaml
+
+# Private local ops scripts
+tools/*.private.sh
