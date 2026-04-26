@@ -170,29 +170,6 @@ That combination is what turns the project from a cluster experiment into an ear
 
 ---
 
-## Project direction
-
-The near-term direction is clear:
-
-- stabilize the Traefik-only ingress lane
-- audit and normalize cluster services
-- freeze blueprint-grade configuration and documentation
-- publish GitHub-safe state and architecture artifacts
-- continue evolving MumbleCluster as a modular distributed runtime
-
-The long-term direction remains broader:
-to assimilate heterogeneous compute, network edge, service logic, and execution tooling into one unified orchestration environment.
-
----
-
-## Collaboration
-
-Questions, ideas, and collaboration proposals are welcome.
-
-Please open a **GitHub Issue** or **Discussion** in this repository.
-
-Project maintainer: **@benjoire**
-
 ## Storage-backed workload landing and hot-plug doctrine
 
 MumbleCluster now includes a validated storage-backed application lane for remote worker execution over the WG-safe MC-PVC path.
@@ -247,3 +224,28 @@ The combined refresh automation still needs hardening around:
 - manifest-path validation on all controller nodes
 
 Until then, treat the helper as repo-worthy and operationally useful, but not yet fully final in its one-shot mode.
+
+---
+
+## Project direction
+
+The near-term direction is clear:
+
+- stabilize the Traefik-only ingress lane
+- audit and normalize cluster services
+- freeze blueprint-grade configuration and documentation
+- publish GitHub-safe state and architecture artifacts
+- continue evolving MumbleCluster as a modular distributed runtime
+
+The long-term direction remains broader:
+to assimilate heterogeneous compute, network edge, service logic, and execution tooling into one unified orchestration environment.
+
+---
+
+## Collaboration
+
+Questions, ideas, and collaboration proposals are welcome.
+
+Please open a **GitHub Issue** or **Discussion** in this repository.
+
+Project maintainer: **@benjoire**
