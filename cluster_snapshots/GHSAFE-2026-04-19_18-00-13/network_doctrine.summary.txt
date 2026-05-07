@@ -1,3 +1,0 @@
-WG topology: /32 identity model
-Transit model: BENQ hub / routed spoke design
-Goal: topology summary only; no peer endpoints or private keys included
