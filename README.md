@@ -1,5 +1,5 @@
+[![MC-Dash](https://img.shields.io/badge/MC--Dash-live-00c853)](https://desk.mumblehighlife.de/github/)
 [![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof-random.mumblehighlife.de/)
-![Status](https://img.shields.io/badge/status-active%20prototype-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 # MumbleCluster
@@ -33,7 +33,11 @@ The architecture aims to stress connectivity to its edges and unify everything w
 
 GitHub is the broader community package: overview, changelog, license, and public concept notes.
 
-MC-Dash is the public presentation layer for approved project summaries, proof notes, and collaboration updates. It carries the richer live story as the project evolves, while GitHub stays clean and readable for the broader community.
+MC-Dash is the live public presentation layer for approved project summaries, proof notes, and collaboration updates:
+
+- https://desk.mumblehighlife.de/github/
+
+MC-Dash carries the richer live story as the project evolves, while GitHub stays clean and readable for the broader community.
 
 The first basic proof page is:
 
@@ -72,6 +76,7 @@ Reviewed project summaries can move into MC-MariaDB and then appear through MC-D
 - CODER and LibreOffice service-pod surfaces
 - Prometheus and Grafana visibility direction
 - database-driven live pages
+- live MC-Dash public surface
 - MC-Dash and GitHub publication split
 - proof and demonstration pages
 
