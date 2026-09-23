@@ -1,4 +1,3 @@
-[![MC-Dash](https://img.shields.io/badge/MC--Dash-live-00c853)](https://desk.mumblehighlife.de/github/)
 [![PoC](https://img.shields.io/badge/PoC-live-green)](https://proof-random.mumblehighlife.de/)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
@@ -21,7 +20,7 @@ At a high level, the project brings together:
 - public service exposure through a high-speed NGINX edge on HEX22
 - MC-Edge connectivity over the fiber lane
 - ingress routing through Traefik and NodePort service exposure
-- database-reviewed live pages through MC-MariaDB and MC-Dash
+- database-reviewed operator surfaces through MC-MariaDB and the private MC-Dash
 - visibility concepts around Prometheus and Grafana
 - public proof surfaces and private runtime boundaries
 
@@ -31,13 +30,9 @@ The architecture aims to stress connectivity to its edges and unify everything w
 
 ## Public surfaces
 
-GitHub is the broader community package: overview, changelog, license, and public concept notes.
+GitHub is the public MumbleCluster project surface: overview, changelog, license, public concept notes, and collaboration context.
 
-MC-Dash is the live public presentation layer for approved project summaries, proof notes, and collaboration updates:
-
-- https://desk.mumblehighlife.de/github/
-
-MC-Dash carries the richer live story as the project evolves, while GitHub stays clean and readable for the broader community.
+MC-Dash is now a private operator surface. It is intentionally protected and is not a public project or forum destination.
 
 The first basic proof page is:
 
@@ -61,9 +56,9 @@ Public material should describe intent, architecture, boundaries, and collaborat
 
 The repository should help visitors understand the project without exposing implementation handles that make the live environment easier to fingerprint or operate against.
 
-### Database-reviewed publication
+### Database-reviewed internal surfaces
 
-Reviewed project summaries can move into MC-MariaDB and then appear through MC-Dash. This keeps public pages current while preserving a clear approval boundary.
+Reviewed operational summaries can move into MC-MariaDB and appear through the private MC-Dash. Public project material is published separately through reviewed GitHub content and intentionally public proof surfaces.
 
 ## Current public topics
 
@@ -75,9 +70,9 @@ Reviewed project summaries can move into MC-MariaDB and then appear through MC-D
 - pure VM-worker participation
 - CODER and LibreOffice service-pod surfaces
 - Prometheus and Grafana visibility direction
-- database-driven live pages
-- live MC-Dash public surface
-- MC-Dash and GitHub publication split
+- reviewed public project notes
+- private MC-Dash operator boundary
+- GitHub/public-proof and private-operations separation
 - proof and demonstration pages
 
 ## Repository shape
